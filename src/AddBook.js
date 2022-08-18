@@ -63,7 +63,7 @@ const AddBook = () => {
           </div>
           <div className="form-group">
             <input
-              type="text"
+              type="number"
               className="form-control form-control-lg"
               placeholder="Enter Your NO.of Pages"
               name="no_of_pages"
@@ -73,7 +73,7 @@ const AddBook = () => {
           </div>
           <div className="form-group">
             <input
-              type="text"
+              type="date"
               className="form-control form-control-lg"
               placeholder="Enter Your Published Date"
               name="published_date"

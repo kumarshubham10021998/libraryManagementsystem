@@ -2,15 +2,10 @@ import React, { useState, useEffect } from 'react'
 import axios from "axios";
 import { useHistory, useParams } from "react-router-dom";
 const Edit = () => {
+  let edit_data = sessionStorage.getItem("edit")
     let history = useHistory();
     const { id } = useParams();
-    const [user, setUser] = useState({
-        name: "",
-        author_name: "",
-        publication_name: "",  
-        no_of_pages: "",
-        published_date: ""
-    });
+    const [user, setUser] = useState(edit_data);
   
     const { name, author_name, publication_name, no_of_pages, published_date} = user;
     const onInputChange = e => {
@@ -29,7 +24,8 @@ const Edit = () => {
     };
   
     const loadUser = async () => {
-      const result = await axios.get(`http://powerful-temple-78847.herokuapp.com/book/update/${id}`);
+      const token1 = (sessionStorage.getItem('token'));
+      const result = await axios.get(`http://powerful-temple-78847.herokuapp.com/book/update/${id}`, user,{ headers: {"Authorization" : `Bearer ${token1}`} });
       console.log(result)
       setUser(result.data.books);
     };

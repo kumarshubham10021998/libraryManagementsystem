@@ -24,13 +24,14 @@ function Login(props) {
   }
 
   return (
-    <div className=''>
-      Login<br/><br/>
-      <div>
-        Username<br />
+    <div className='text-info p-5 bg bg-success border'style={{backgroundImage: `url("assets/img/2.jpg")`}} >
+     Admin Login<br /><br />
+      <div className='text-light font-weight-bold '>
+        User Name<br />
+     
         <input type="text" {...email} autoComplete="new-password" />
       </div>
-      <div style={{ marginTop: 10 }}>
+      <div className='text-light font-weight-bold ' style={{ marginTop: 10 }}>
         Password<br />
         <input type="password" {...password} autoComplete="new-password" />
       </div>

@@ -11,6 +11,9 @@ import PublicRoute from './Utils/PublicRoute';
 import { getToken, removeUserSession, setUserSession } from './Utils/Common';
 import AddBook from './AddBook';
 import Edit from './Edit';
+import Users from './Users';
+import Registration from './Registration';
+import Booklist from './Booklist';
 
 function App() {
   const [authLoading, setAuthLoading] = useState(true);
@@ -40,15 +43,21 @@ function App() {
         <div>
           <div className="header">
             {/* <NavLink exact activeClassName="active" to="/">Home</NavLink> */}
-            <NavLink activeClassName="active" to="/login">Login</NavLink>
-            <NavLink activeClassName="active" to="/dashboard">Dashboard</NavLink> 
+            <NavLink activeClassName="active" to="/admin-login">Admin</NavLink>
+            <NavLink className="d-flex justify-content-end mt--0" activeClassName="active" to="/user-login">User Login</NavLink>
+            <NavLink activeClassName="active" to="/dashboard">Dashboard</NavLink>
+            
             <NavLink className='btn btn-success fs-bold text-light ms-2 ' activeClassName="active" to="/addbook">Add New Book</NavLink> 
           </div>
           <div className="content">
             <Switch>
               {/* <Route exact path="/" component={Home} /> */}
-              <PublicRoute path="/login" component={Login} />
+              <PublicRoute path="/admin-login" component={Login} />
+              <PublicRoute path="/user-login" component={Users} />
+              <PublicRoute path="/registration" component={Registration} />
+            
               <PrivateRoute path="/dashboard" component={Dashboard} />
+              <PrivateRoute path="/users" component={Users} /> 
               <PrivateRoute path="/addbook" component={AddBook} />
               <PrivateRoute path="/users/edit/:id" component={Edit} />
             </Switch>
